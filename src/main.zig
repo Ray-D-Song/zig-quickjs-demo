@@ -11,9 +11,7 @@ const quickNG = @cImport({
 pub fn main() !void {
     const rt = quickNG.JS_NewRuntime();
     const ctx = quickNG.JS_NewContext(rt);
+    const ret = quickNG.JS_UNDEFINED;
     const code = "const a = 12; const b = 24; a+b";
-    const val = quickNG.JS_Eval(ctx, code, code.len, "test.js", quickNG.JS_EVAL_TYPE_GLOBAL);
-    const number = quickNG.JS_ToNumber(ctx, val);
-    std.debug.print("{}", .{number});
 }
 
